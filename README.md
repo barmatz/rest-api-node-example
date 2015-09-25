@@ -1,2 +1,3 @@
 # rest-api-node-example
-A RESTful API Node Express server with Sequelize hooks
+
+> A RESTful API Node Express server with Sequelize hooks

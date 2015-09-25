@@ -1,13 +1,24 @@
 {
   "name": "rest-api-node-example",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "A RESTful API Node Express server with Sequelize hooks",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/barmatz/rest-api-node-example.git"
+  },
+  "author": {
+    "name": "Or Barmatz",
+    "email": "barmatzor@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/barmatz/rest-api-node-example/issues"
+  },
+  "homepage": "https://github.com/barmatz/rest-api-node-example",
   "dependencies": {
     "body-parser": "^1.14.0",
     "chalk": "^1.1.1",
