@@ -1,0 +1,23 @@
+{
+  "name": "rest-api-node-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.0",
+    "chalk": "^1.1.1",
+    "epilogue": "^0.6.1",
+    "express": "^4.13.3",
+    "inflected": "^1.1.6",
+    "jsonapi-serializer": "^2.0.2",
+    "morgan": "^1.6.1",
+    "mysql": "^2.9.0",
+    "sequelize": "^3.9.0",
+    "winston": "^1.0.1"
+  }
+}
