@@ -5,12 +5,13 @@ var epilogue = require('epilogue')
   , inflected = require('inflected');
 
 
-module.exports = function (model, attributes, associations) {
+module.exports = function (model, attributes, includeAssociations) {
   var name = model.name
     , pluralName = inflected.pluralize(name)
     , milestones = {
         data: function (req, res, context) {
-          var instance = context.instance;
+          var instance = context.instance
+            , requestUrl = req.url;
 
           if (instance instanceof Array) {
             instance = instance.map(function (instance) {
@@ -22,11 +23,18 @@ module.exports = function (model, attributes, associations) {
 
           context.instance = new JsonApiSerializer(pluralName, instance, {
             topLevelLinks: {
-              self: req.url
+              self: requestUrl
             },
             dataLinks: {
-              self: function (user) {
-                return req.url + '/' + user.id;
+              self: function (instance) {
+                var id = instance.id;
+
+                if (new RegExp('/' + id + '$').test(requestUrl)) {
+                  return requestUrl;
+                } else {
+                  return requestUrl + '/' + instance.id;
+                }
+
               }
             },
             attributes: attributes
@@ -41,7 +49,7 @@ module.exports = function (model, attributes, associations) {
       model: model,
       endpoints: [ '/' + pluralName, '/' + pluralName + '/:id' ],
       attributes: attributes,
-      associations: !!associations
+      associations: !!includeAssociations
     })
       .use({
         read: milestones,
